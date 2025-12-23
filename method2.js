@@ -24,9 +24,10 @@ function positionOfArray(arr) {
 function domainGenerator(){
     let listOfDomains = "";
     for(let i = 0; i < 8; i++){
-      listOfDomains += (i+1) + ". " + positionOfArray(pronouns) + positionOfArray(adjectives) + positionOfArray(nouns) + positionOfArray(domains) + "\n";
+
+      listOfDomains += `${i+1}. ${positionOfArray(pronouns)}${positionOfArray(adjectives)}${positionOfArray(nouns)}${positionOfArray(domains)}\n`
+
     }
-    return listOfDomains
+    return document.getElementById('listOfDomains') = listOfDomains;
 }
 
-console.log(domainGenerator());
