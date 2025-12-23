@@ -6,7 +6,8 @@ let listDomains = '';
 for(let i=0; i < pronouns.length; i++){
   for(let j=0; j < adjectives.length; j++){
     for(let k=0; k < nouns.length; k++)
-      listDomains += pronouns[i] + adjectives[j] + nouns[k] + ".com" + "\n"
+      listDomains += `${pronouns[i]}${adjectives[j]}${nouns[k]}.com\n`
+    
   }
 }
 
