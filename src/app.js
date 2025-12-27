@@ -12,11 +12,14 @@ window.onload = function () {
   const listSelect = document.getElementById("listSelect");
   const btnAdd = document.getElementById("btnAdd");
   const btnGenerate = document.getElementById("btnGenerate");
+  const btnAllCombinations = this.document.getElementById("btnAllCombinations")
 
   btnAdd.addEventListener("click", addWord);
   btnGenerate.addEventListener("click", domainGenerator);
+  btnAllCombinations.addEventListener("click", showAllPosibleCombinations)
+  
 
-  let listForDomains = {
+  const listForDomains = {
     pronouns: ["the"],
     adjectives: ["big"],
     nouns: ["person"],
@@ -64,7 +67,30 @@ window.onload = function () {
     function domainGenerator() {
       let listOfDomains = `${positionOfArray(listForDomains.pronouns)}${positionOfArray(listForDomains.adjectives)}${positionOfArray(listForDomains.nouns)}${positionOfArray(listForDomains.domains)}\n`
 
-      return document.getElementById('listOfDomains').innerHTML = listOfDomains;
+      return document.getElementById('listOfDomains').innerHTML = listOfDomains
     }
+
+    function showAllPosibleCombinations() {
+      let combinationsList = '';
+      let combinationsLength = [];
+      listForDomains.pronouns.forEach((pronoun)=> {
+        listForDomains.adjectives.forEach((adjective)=>{
+          listForDomains.nouns.forEach((noun)=>{
+            listForDomains.domains.forEach((domain)=>{
+              combinationsList += `<li class="list-group-item fs-4 fw-bold">${pronoun}${adjective}${noun}${domain}</li>`
+              combinationsLength.push(pronoun+adjective+noun+domain)
+            })
+          })
+        })
+      })
+
+      document.getElementById("allCombinationsList").innerHTML = combinationsList
+      document.getElementById('listResult').innerHTML = `<span class= "badge bg-secondary">${combinationsLength.length}</span> Combinations Generated`
+    }
+
+    // Two more functions needed:
+    // 1. Erase the element and close button 
+    // 2. Fix how All Combinations List looks like 
+
 
   };
