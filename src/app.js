@@ -17,7 +17,7 @@ window.onload = function () {
   btnAdd.addEventListener("click", addWord);
   btnGenerate.addEventListener("click", domainGenerator);
   btnAllCombinations.addEventListener("click", showAllPosibleCombinations);
-  wordInput.addEventListener("input", () => { wordInput.value = wordInput.value.toLowerCase(); });
+  wordInput.addEventListener("input", () => { wordInput.value = wordInput.value.toLowerCase().trim(); });
 
 
   const listForDomains = {
